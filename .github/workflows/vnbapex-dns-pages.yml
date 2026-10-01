@@ -7,6 +7,7 @@ on:
       - VNBAPEX-DNS-Web.zip
       - VNBAPEX-DNS-Web/**
       - dns-settings.json
+      - nguoi-dung.mp3
       - .github/workflows/vnbapex-dns-pages.yml
 permissions:
   contents: read
@@ -37,6 +38,9 @@ jobs:
           if [[ -f "$GITHUB_WORKSPACE/dns-settings.json" ]]; then
             task_settings="$GITHUB_WORKSPACE/dns-settings.json"
           fi
+          if [[ -f "$GITHUB_WORKSPACE/nguoi-dung.mp3" ]]; then
+            cp "$GITHUB_WORKSPACE/nguoi-dung.mp3" "$task_source/site/nguoi-dung.mp3"
+          fi
           python3 "$task_source/scripts/build.py" --config "$task_settings" --output "$GITHUB_WORKSPACE/_site"
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -47,4 +51,3 @@ jobs:
       - name: Publish website
         id: deployment
         uses: actions/deploy-pages@v4
-
