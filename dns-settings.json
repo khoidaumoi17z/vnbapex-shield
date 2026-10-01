@@ -1,0 +1,9 @@
+{
+  "profile_name": "VNBAPEX BYPASS DNS",
+  "version": "3.0.0",
+  "provider": "NextDNS",
+  "protocol": "HTTPS",
+  "server_url": "https://dns.nextdns.io/fdd1d2",
+  "server_addresses": [],
+  "filter_policy": "filters/domain-policy.json"
+}
